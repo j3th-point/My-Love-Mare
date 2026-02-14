@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Mare — A Love Timeline 💘</title>
+  <meta name="description" content="A timeline of memories for Mare, the Rare Sunflower — from Papi, President of Mare’s Fan Club."/>
+  <style>
+    :root{
+      --bg0:#0b0610;
+      --bg1:#1a0b18;
+      --rose:#ff4d88;
+      --rose2:#ff87b1;
+      --champ:#ffd7e6;
+      --ink:#f9f2f6;
+      --muted:#d6c4cf;
+      --glass: rgba(255,255,255,.08);
+      --glass2: rgba(255,255,255,.12);
+      --stroke: rgba(255,255,255,.14);
+      --shadow: 0 20px 70px rgba(0,0,0,.45);
+      --radius: 22px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 900px at 15% 10%, rgba(255,77,136,.18), rgba(0,0,0,0) 55%),
+        radial-gradient(900px 700px at 85% 30%, rgba(255,135,177,.14), rgba(0,0,0,0) 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    /* Soft luxury shimmer */
+    .grain{
+      position:fixed; inset:0; pointer-events:none; opacity:.10; mix-blend-mode: overlay;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.12) 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,.10) 0 2px, transparent 3px);
+      background-size: 140px 140px;
+      filter: blur(.2px);
+      z-index:0;
+    }
+
+    /* Floating hearts */
+    .hearts{ position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
+    .heart{
+      position:absolute; width:16px; height:16px; transform: rotate(45deg);
+      background: linear-gradient(135deg, var(--rose), var(--rose2));
+      border-radius: 4px; opacity:.65;
+      filter: drop-shadow(0 10px 18px rgba(255,77,136,.25));
+      animation: floatUp linear forwards;
+    }
+    .heart::before,.heart::after{ content:""; position:absolute; width:16px; height:16px; background:inherit; border-radius:50%; }
+    .heart::before{ left:-8px; top:0; }
+    .heart::after{ top:-8px; left:0; }
+    @keyframes floatUp{ from{ transform: translateY(110vh) rotate(45deg) scale(var(--s,1)); } to{ transform: translateY(-20vh) rotate(45deg) scale(var(--s,1)); } }
+
+    main{ position:relative; z-index:1; }
+
+    /* HERO (Netflix doc vibe) */
+    .hero{
+      min-height: 88vh;
+      display:grid;
+      place-items:center;
+      padding: 56px 18px 28px;
+    }
+    .heroCard{
+      width:min(1050px, 100%);
+      border-radius: 30px;
+      padding: 28px 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      overflow:hidden;
+      position:relative;
+    }
+    .heroCard::before{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 20%, rgba(255,77,136,.35), rgba(0,0,0,0) 55%),
+                  radial-gradient(circle at 70% 65%, rgba(255,135,177,.22), rgba(0,0,0,0) 60%);
+      transform: rotate(12deg);
+      opacity:.8;
+    }
+    .heroInner{ position:relative; display:grid; grid-template-columns: 1.15fr .85fr; gap: 18px; align-items:center; }
+    @media (max-width: 900px){ .heroInner{ grid-template-columns: 1fr; } }
+
+    .tag{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 8px 12px; border-radius: 999px;
+      background: rgba(255,77,136,.14);
+      border: 1px solid rgba(255,77,136,.22);
+      color: var(--champ);
+      font-weight: 800; font-size: 13px;
+      width:max-content;
+    }
+    .dot{ width:10px; height:10px; border-radius:50%; background: var(--rose); box-shadow: 0 0 0 4px rgba(255,77,136,.12); }
+
+    h1{ margin: 12px 0 10px; font-size: clamp(30px, 4vw, 52px); line-height:1.03; letter-spacing:-.02em; }
+    .lead{ margin:0; color: var(--muted); line-height:1.7; max-width: 60ch; font-size: 15.5px; }
+    .poem{
+      margin-top: 16px;
+      padding: 14px 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      color: #ffeaf2;
+      white-space: pre-line;
+      line-height:1.75;
+      font-size: 14.6px;
+    }
+
+    .poster{
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(255,77,136,.18), rgba(255,135,177,.10));
+      border: 1px solid rgba(255,255,255,.16);
+      overflow:hidden;
+      position:relative;
+      aspect-ratio: 4/3;
+      display:grid;
+      place-items:center;
+      box-shadow: 0 22px 60px rgba(0,0,0,.25);
+    }
+    .poster .bigHeart{
+      width: 120px; height: 120px; transform: rotate(45deg);
+      background: linear-gradient(135deg, var(--rose), var(--rose2));
+      border-radius: 20px;
+      filter: drop-shadow(0 24px 50px rgba(255,77,136,.28));
+      animation: pulse 2.6s ease-in-out infinite;
+      position:relative;
+    }
+    .poster .bigHeart::before,.poster .bigHeart::after{ content:""; position:absolute; width:120px; height:120px; background:inherit; border-radius:50%; }
+    .poster .bigHeart::before{ left:-60px; top:0; }
+    .poster .bigHeart::after{ top:-60px; left:0; }
+    @keyframes pulse{ 0%,100%{ transform: rotate(45deg) scale(1); } 50%{ transform: rotate(45deg) scale(1.07); } }
+    .poster .hint{
+      position:absolute; bottom:12px; left:12px; right:12px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.16);
+      color: var(--champ);
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+      font-size: 13.5px;
+    }
+
+    .ctaRow{ margin-top: 16px; display:flex; gap: 10px; flex-wrap:wrap; }
+    button{
+      border:0; cursor:pointer; font-family: inherit;
+      padding: 12px 14px; border-radius: 16px; font-weight: 900;
+      transition: transform .08s ease, box-shadow .12s ease;
+      box-shadow: 0 16px 34px rgba(0,0,0,.25);
+      user-select:none;
+    }
+    button:active{ transform: translateY(1px); box-shadow: 0 12px 26px rgba(0,0,0,.22); }
+    .primary{ background: linear-gradient(135deg, var(--rose), var(--rose2)); color:#1a0713; }
+    .ghost{ background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.18); color: var(--ink); }
+
+    /* Timeline */
+    .timelineWrap{
+      width:min(1050px, 100%);
+      margin: 0 auto;
+      padding: 8px 18px 64px;
+    }
+    .timelineHeader{
+      display:flex; justify-content:space-between; align-items:flex-end; gap: 12px; flex-wrap:wrap;
+      margin: 10px 0 18px;
+    }
+    .timelineHeader h3{ margin:0; font-size: 18px; letter-spacing:-.01em; }
+    .timelineHeader p{ margin:0; color: var(--muted); max-width: 70ch; line-height:1.6; font-size: 14.2px; }
+
+    .rail{
+      position:relative;
+      padding-left: 18px;
+    }
+    .rail::before{
+      content:"";
+      position:absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(255,77,136,.55), rgba(255,255,255,.10));
+      border-radius: 99px;
+    }
+
+    .moment{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      padding: 18px 0 26px 0;
+      align-items:center;
+    }
+    @media (max-width: 860px){ .moment{ grid-template-columns: 1fr; } }
+
+    .moment::before{
+      content:"";
+      position:absolute;
+      left: -2px;
+      top: 30px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, var(--champ), var(--rose));
+      box-shadow: 0 0 0 6px rgba(255,77,136,.14);
+    }
+
+    .meta{
+      padding: 14px 14px;
+      border-radius: 20px;
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(10px);
+    }
+    .kicker{
+      font-size: 12px;
+      letter-spacing: .16em;
+      font-weight: 900;
+      color: rgba(255,215,230,.9);
+    }
+    .meta h2{ margin: 8px 0 8px; font-size: 18px; letter-spacing:-.01em; }
+    .meta p{ margin:0; color: var(--muted); line-height:1.7; font-size: 14.4px; }
+
+    .media{
+      padding: 10px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 18px 45px rgba(0,0,0,.22);
+      overflow:hidden;
+    }
+    video, img{
+      width:100%;
+      display:block;
+      border-radius: 16px;
+      background: rgba(255,255,255,.07);
+    }
+    video{ max-height: 420px; }
+    img{ max-height: 520px; object-fit: cover; }
+
+    .left .meta{ order: 1; } .left .media{ order: 2; }
+    .right .meta{ order: 2; } .right .media{ order: 1; }
+    @media (max-width: 860px){ .right .meta, .right .media{ order: initial; } }
+
+    /* Pledge + letter */
+    .finale{
+      margin-top: 22px;
+      padding: 18px 16px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: var(--shadow);
+    }
+    .finale h4{ margin:0 0 10px; font-size: 18px; letter-spacing:-.01em; }
+    .finale .text{ color: var(--muted); line-height:1.8; font-size: 14.6px; white-space: pre-line; }
+
+    .footer{ margin-top: 18px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; color: rgba(255,255,255,.70); font-size: 12.5px; }
+    .sig{ color: var(--champ); font-weight: 1000; }
+
+    /* Sound notice */
+    .toast{
+      position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%);
+      padding: 10px 12px; border-radius: 999px;
+      background: rgba(0,0,0,.38);
+      border: 1px solid rgba(255,255,255,.16);
+      color: rgba(255,255,255,.85);
+      font-size: 12.5px;
+      backdrop-filter: blur(8px);
+      z-index: 5;
+    }
+  
+    /* Cinematic fade-in on scroll */
+    .moment{
+      opacity: 0;
+      transform: translateY(18px) scale(.995);
+      transition: opacity .85s ease, transform .95s cubic-bezier(.2,.8,.2,1);
+      will-change: opacity, transform;
+    }
+    .moment.in{
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .moment .meta, .moment .media{
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .75s ease, transform .85s cubic-bezier(.2,.8,.2,1);
+    }
+    .moment.in .meta{ transition-delay: .05s; opacity: 1; transform: translateY(0); }
+    .moment.in .media{ transition-delay: .14s; opacity: 1; transform: translateY(0); }
+
+  </style>
+
+  <noscript>
+    <style>.moment,.moment .meta,.moment .media{opacity:1 !important; transform:none !important;}</style>
+  </noscript>
+
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="hearts" aria-hidden="true" id="hearts"></div>
+
+  <main>
+    <header class="hero" id="top">
+      <div class="heroCard">
+        <div class="heroInner">
+          <div>
+            <div class="tag"><span class="dot"></span> President of <b>Mare’s Fan Club</b></div>
+            <h1>Mare, my Rare Sunflower 🌻</h1>
+            <p class="lead">A timeline of the love we built — from moonlight strangers to family-hand-holds. Always Papi.</p>
+            <div class="poem">We started as strangers under the moon.
+The waves heard our first kiss.
+From creamy pasta apologies
+to train rides and Christmas hands —
+every version of us
+has still chosen love.
+
+And I will always choose you.</div>
+
+            <div class="ctaRow">
+              <button class="primary" id="unmuteBtn">Turn sound ON</button>
+              <button class="ghost" id="musicBtn">Play music 🎶</button>
+              <button class="ghost" id="muteBtn">Keep it muted</button>
+              <button class="ghost" id="jumpBtn">Start the timeline</button>
+            </div>
+          </div>
+
+          <div class="poster" aria-hidden="true">
+            <div class="bigHeart"></div>
+            <div class="hint">
+              <span><b>Docu‑love</b> timeline</span>
+              <span>💘</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="timelineWrap" id="timeline">
+      <div class="timelineHeader">
+        <div>
+          <h3>Our story, in chapters</h3>
+          <p>Videos are embedded and set to autoplay <b>muted</b> (that’s how browsers allow autoplay). Tap “Turn sound ON” whenever you want the full vibe.</p>
+        </div>
+      </div>
+
+      <div class="rail">
+        
+      <article class="moment left">
+        <div class="meta">
+          <div class="kicker">CHAPTER 01</div>
+          <h2>Moonlight, strangers… then a kiss</h2>
+          <p>Our first outing as “strangers.” The beach was quiet, the moon was loud, and that kiss started everything.</p>
+        </div>
+        <div class="media">
+  <video src="https://res.cloudinary.com/dcczz03qy/video/upload/v1771024715/IMG_5846_jpgbcl.mov" muted autoplay loop playsinline preload="metadata" controls></video>
+</div>
+      </article>
+    
+      <article class="moment right">
+        <div class="meta">
+          <div class="kicker">CHAPTER 02</div>
+          <h2>Our favorite place</h2>
+          <p>Just the beach scenery… but to me it’s a landmark: the place our first kiss lives forever.</p>
+        </div>
+        <div class="media">
+  <video src="https://res.cloudinary.com/dcczz03qy/video/upload/v1771024630/IMG_0366_u9lws0.mov" muted autoplay loop playsinline preload="metadata" controls></video>
+</div>
+      </article>
+    
+      <article class="moment left">
+        <div class="meta">
+          <div class="kicker">CHAPTER 03</div>
+          <h2>Initials vs. the waves</h2>
+          <p>The water washed the letters away, but it could never wash away what we became.</p>
+        </div>
+        <div class="media">
+  <video src="https://res.cloudinary.com/dcczz03qy/video/upload/v1771024713/IMG_6844_fw1kuo.mov" muted autoplay loop playsinline preload="metadata" controls></video>
+</div>
+      </article>
+    
+      <article class="moment right">
+        <div class="meta">
+          <div class="kicker">CHAPTER 04</div>
+          <h2>First date: Lufasi Park</h2>
+          <p>Our first proper date — and we kissed like we already knew we belonged together.</p>
+        </div>
+        <div class="media">
+  <video src="https://res.cloudinary.com/dcczz03qy/video/upload/v1771024712/1E9C9DF5-F3B1-4835-AF54-F54B90D5DBA2_1_tgjxze.mov" muted autoplay loop playsinline preload="metadata" controls></video>
+</div>
+      </article>
+    
+      <article class="moment left">
+        <div class="meta">
+          <div class="kicker">CHAPTER 05</div>
+          <h2>Lufasi Park: proof</h2>
+          <p>A picture that says it all: we were brave enough to love out loud.</p>
+        </div>
+        <div class="media">
+  <img src="https://res.cloudinary.com/dcczz03qy/image/upload/v1771024612/IMG_6995_lhfm6m.jpg" alt="Lufasi Park: proof" loading="lazy" />
+</div>
+      </article>
+    
+      <article class="moment right">
+        <div class="meta">
+          <div class="kicker">CHAPTER 06</div>
+          <h2>Our first content together</h2>
+          <p>Two lovers, one camera, and a thousand private smiles hiding in the frames.</p>
+        </div>
+        <div class="media">
+  <video src="https://res.cloudinary.com/dcczz03qy/video/upload/v1771024743/IMG_0248_kfcpq6.mov" muted autoplay loop playsinline preload="metadata" controls></video>
+</div>
+      </article>
+    
+      <article class="moment left">
+        <div class="meta">
+          <div class="kicker">CHAPTER 07</div>
+          <h2>The moment I fell</h2>
+          <p>This video did it. You being you — and my heart deciding, permanently.</p>
+        </div>
+        <div class="media">
+  <video src="https://res.cloudinary.com/dcczz03qy/video/upload/v1771024741/IMG_7198_ut13p2.mov" muted autoplay loop playsinline preload="metadata" controls></video>
+</div>
+      </article>
+    
+      <article class="moment right">
+        <div class="meta">
+          <div class="kicker">CHAPTER 08</div>
+          <h2>Unaware Mare</h2>
+          <p>My favorite kind of beautiful is you when you don’t know you’re being watched.</p>
+        </div>
+        <div class="media">
+  <img src="https://res.cloudinary.com/dcczz03qy/image/upload/v1771024614/IMG_8179_p2droi.jpg" alt="Unaware Mare" loading="lazy" />
+</div>
+      </article>
+    
+      <article class="moment left">
+        <div class="meta">
+          <div class="kicker">CHAPTER 09</div>
+          <h2>First ice cream date (Novare Mall)</h2>
+          <p>Sweet beginnings — and the start of all our little ‘let’s do this again’ days.</p>
+        </div>
+        <div class="media">
+  <img src="https://res.cloudinary.com/dcczz03qy/image/upload/v1771024617/IMG_6937_qicd61.jpg" alt="First ice cream date (Novare Mall)" loading="lazy" />
+</div>
+      </article>
+    
+      <article class="moment right">
+        <div class="meta">
+          <div class="kicker">CHAPTER 10</div>
+          <h2>After-work hangout fuel</h2>
+          <p>Random food, real conversations, and love that showed up even when we were tired.</p>
+        </div>
+        <div class="media">
+  <img src="https://res.cloudinary.com/dcczz03qy/image/upload/v1771024616/IMG_6862_o8xxlp.jpg" alt="After-work hangout fuel" loading="lazy" />
+</div>
+      </article>
+    
+      <article class="moment left">
+        <div class="meta">
+          <div class="kicker">CHAPTER 11</div>
+          <h2>Ice cream & waffles after stress</h2>
+          <p>A stressful day ended, but you still had my hand — that’s the kind of love I want to keep giving.</p>
+        </div>
+        <div class="media">
+  <img src="https://res.cloudinary.com/dcczz03qy/image/upload/v1771024615/IMG_6526_dve5hj.jpg" alt="Ice cream & waffles after stress" loading="lazy" />
+</div>
+      </article>
+    
+      <article class="moment right">
+        <div class="meta">
+          <div class="kicker">CHAPTER 12</div>
+          <h2>The creamy pasta that saved the day</h2>
+          <p>I made you angry… then I made your creamy pasta. Not for peace alone — for us.</p>
+        </div>
+        <div class="media">
+  <video src="https://res.cloudinary.com/dcczz03qy/video/upload/v1771024706/F61FC2D7-1B6B-4E28-B37B-BF584F974CA8_dtligp.mov" muted autoplay loop playsinline preload="metadata" controls></video>
+</div>
+      </article>
+    
+      <article class="moment left">
+        <div class="meta">
+          <div class="kicker">CHAPTER 13</div>
+          <h2>Breakfast love language</h2>
+          <p>Smiley pancakes, honey-written ‘I love you,’ and tea — because romance lives in the details.</p>
+        </div>
+        <div class="media">
+  <img src="https://res.cloudinary.com/dcczz03qy/image/upload/v1771024615/IMG_8529_lwgvfi.jpg" alt="Breakfast love language" loading="lazy" />
+</div>
+      </article>
+    
+      <article class="moment right">
+        <div class="meta">
+          <div class="kicker">CHAPTER 14</div>
+          <h2>Noodles + chopsticks at the beach</h2>
+          <p>Feeding you like the soft baby you are… and secretly wishing this becomes tradition.</p>
+        </div>
+        <div class="media">
+  <video src="https://res.cloudinary.com/dcczz03qy/video/upload/v1771024733/IMG_6808_tudhn5.mov" muted autoplay loop playsinline preload="metadata" controls></video>
+</div>
+      </article>
+    
+      <article class="moment left">
+        <div class="meta">
+          <div class="kicker">CHAPTER 15</div>
+          <h2>Unaware while you work</h2>
+          <p>You working, me recording, you distracting me — and somehow it’s still my favorite chaos.</p>
+        </div>
+        <div class="media">
+  <video src="https://res.cloudinary.com/dcczz03qy/video/upload/v1771024737/IMG_8230_ykuirs.mov" muted autoplay loop playsinline preload="metadata" controls></video>
+</div>
+      </article>
+    
+      <article class="moment right">
+        <div class="meta">
+          <div class="kicker">CHAPTER 16</div>
+          <h2>After I walked you home</h2>
+          <p>A quiet moment that says: protecting your peace will always be my priority.</p>
+        </div>
+        <div class="media">
+  <img src="https://res.cloudinary.com/dcczz03qy/image/upload/v1771024614/IMG_8167_bpr3sl.jpg" alt="After I walked you home" loading="lazy" />
+</div>
+      </article>
+    
+      <article class="moment left">
+        <div class="meta">
+          <div class="kicker">CHAPTER 17</div>
+          <h2>GTCo Food & Drinks (unofficial date)</h2>
+          <p>Not everything needed a label. We were already choosing each other.</p>
+        </div>
+        <div class="media">
+  <img src="https://res.cloudinary.com/dcczz03qy/image/upload/v1771024614/IMG_6397_skypjy.jpg" alt="GTCo Food & Drinks (unofficial date)" loading="lazy" />
+</div>
+      </article>
+    
+      <article class="moment right">
+        <div class="meta">
+          <div class="kicker">CHAPTER 18</div>
+          <h2>Two champagne glasses</h2>
+          <p>To love, to laughter, to us — again and again.</p>
+        </div>
+        <div class="media">
+  <img src="https://res.cloudinary.com/dcczz03qy/image/upload/v1771024614/IMG_8706_vtemem.jpg" alt="Two champagne glasses" loading="lazy" />
+</div>
+      </article>
+    
+      <article class="moment left">
+        <div class="meta">
+          <div class="kicker">CHAPTER 19</div>
+          <h2>One of our date plates</h2>
+          <p>Good food, better company — and a love that kept growing.</p>
+        </div>
+        <div class="media">
+  <img src="https://res.cloudinary.com/dcczz03qy/image/upload/v1771024611/IMG_6267_yhmn6l.jpg" alt="One of our date plates" loading="lazy" />
+</div>
+      </article>
+    
+      <article class="moment right">
+        <div class="meta">
+          <div class="kicker">CHAPTER 20</div>
+          <h2>Train ride: first trip together</h2>
+          <p>On our first trip, even the commute felt like a memory I’d replay forever.</p>
+        </div>
+        <div class="media">
+  <video src="https://res.cloudinary.com/dcczz03qy/video/upload/v1771024727/IMG_8518_1_nlxhqa.mov" muted autoplay loop playsinline preload="metadata" controls></video>
+</div>
+      </article>
+    
+      <article class="moment left">
+        <div class="meta">
+          <div class="kicker">CHAPTER 21</div>
+          <h2>Mare singing on our first staycation</h2>
+          <p>You sang. I watched. And the whole room felt like home.</p>
+        </div>
+        <div class="media">
+  <video src="https://res.cloudinary.com/dcczz03qy/video/upload/v1771024720/IMG_7192_s2nohd.mov" muted autoplay loop playsinline preload="metadata" controls></video>
+</div>
+      </article>
+    
+      <article class="moment right">
+        <div class="meta">
+          <div class="kicker">CHAPTER 22</div>
+          <h2>One strike, all pins down</h2>
+          <p>You cleared the lane in one move — and I swear you’ve been doing the same to my heart.</p>
+        </div>
+        <div class="media">
+  <video src="https://res.cloudinary.com/dcczz03qy/video/upload/v1771063966/IMG_0510_odnmtk.mov" muted autoplay loop playsinline preload="metadata" controls></video>
+</div>
+      </article>
+    
+      <article class="moment left">
+        <div class="meta">
+          <div class="kicker">CHAPTER 23</div>
+          <h2>Our first anniversary date</h2>
+          <p>A year later: still soft, still real, still choosing you.</p>
+        </div>
+        <div class="media">
+  <img src="https://res.cloudinary.com/dcczz03qy/image/upload/v1771024612/IMG_3401_tazbbq.jpg" alt="Our first anniversary date" loading="lazy" />
+</div>
+      </article>
+    
+      <article class="moment right">
+        <div class="meta">
+          <div class="kicker">CHAPTER 24</div>
+          <h2>Our first model gig together</h2>
+          <p>From strangers to partners on set — life really started moving once it became ‘us.’</p>
+        </div>
+        <div class="media">
+  <img src="https://res.cloudinary.com/dcczz03qy/image/upload/v1771060248/PHOTO-2026-02-08-21-37-33_anwv4w.jpg" alt="Our first model gig together" loading="lazy" />
+</div>
+      </article>
+    
+      <article class="moment left">
+        <div class="meta">
+          <div class="kicker">CHAPTER 25</div>
+          <h2>A random kiss</h2>
+          <p>No big occasion. Just love showing up like it always does.</p>
+        </div>
+        <div class="media">
+  <video src="https://res.cloudinary.com/dcczz03qy/video/upload/v1771024728/CE45E288-5E14-4CF0-AB00-9387FC9F5F97_k9zkeh.mov" muted autoplay loop playsinline preload="metadata" controls></video>
+</div>
+      </article>
+    
+      <article class="moment right">
+        <div class="meta">
+          <div class="kicker">CHAPTER 26</div>
+          <h2>Christmas hand-hold</h2>
+          <p>In the middle of family noise, I found peace in your hand (HEIC may not preview on all browsers).</p>
+        </div>
+        <div class="media">
+  <img src="https://res.cloudinary.com/dcczz03qy/image/upload/v1771063472/IMG_5714_twtsvw.jpg" alt="Christmas hand-hold" loading="lazy" />
+</div>
+      </article>
+    
+      <article class="moment left">
+        <div class="meta">
+          <div class="kicker">CHAPTER 27</div>
+          <h2>Christmas party play</h2>
+          <p>We’re not just lovers. We’re best friends — and that’s the part I never want to lose.</p>
+        </div>
+        <div class="media">
+  <video src="https://res.cloudinary.com/dcczz03qy/video/upload/v1771060280/IMG_5702_unz7ap.mov" muted autoplay loop playsinline preload="metadata" controls></video>
+</div>
+      </article>
+    
+      </div>
+
+      <section class="finale" id="finale">
+        <h4>President Mare’s Fan Club Pledge</h4>
+        <div class="text">I, Papi — President of Mare’s Fan Club — do hereby pledge:
+• to hype you loudly and love you gently.
+• to listen first, speak kindly, and show up fully.
+• to protect your peace, not disturb it.
+• to celebrate your wins like they’re mine (because they are).
+• to hold your hand in the highs and hold your heart in the lows.
+• to keep choosing you — with patience, honesty, and loyalty.
+
+Signed with a smile, a kiss, and a forever:
+— Your biggest fan 💘</div>
+
+        <div class="footer">
+          <div>Happy Valentine’s Day, my babygirl.</div>
+          <div class="sig">— Always Papi</div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+
+  <!-- Background music (autoplay with sound is blocked by most browsers, so user must tap Play) -->
+  <audio id="bgm" loop preload="metadata">
+    <!-- Replace this with your own mp3/wav URL or local file path -->
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="toast" id="toast">Tip: Autoplay works muted. Use “Turn sound ON” if you want audio 💞</div>
+
+  <script>
+    // Floating hearts (soft, not chaotic)
+    const hearts = document.getElementById("hearts");
+    const rand = (min, max) => Math.random() * (max - min) + min;
+    function spawnHeart(){
+      const h = document.createElement("div");
+      h.className = "heart";
+      h.style.left = rand(0, 100) + "vw";
+      const dur = rand(7.5, 13.5);
+      h.style.animationDuration = dur + "s";
+      h.style.opacity = rand(0.30, 0.85);
+      h.style.setProperty("--s", rand(0.7, 1.6).toFixed(2));
+      hearts.appendChild(h);
+      setTimeout(() => h.remove(), dur * 1000);
+    }
+    for (let i=0;i<16;i++) setTimeout(spawnHeart, i*260);
+    setInterval(spawnHeart, 620);
+
+    // Timeline jump
+    document.getElementById("jumpBtn").addEventListener("click", () => {
+      document.getElementById("timeline")?.scrollIntoView({behavior:"smooth"});
+    });
+
+    // Autoplay usually requires muted. We'll provide sound toggle.
+    const vids = Array.from(document.querySelectorAll("video"));
+
+    function setMuted(muted){
+      vids.forEach(v => {
+        v.muted = muted;
+        v.volume = muted ? 0 : 1;
+        // try to play again after toggling (some browsers pause on change)
+        const p = v.play();
+        if (p && typeof p.catch === "function") p.catch(() => {});
+      });
+    }
+
+    document.getElementById("unmuteBtn").addEventListener("click", () => setMuted(false));
+    document.getElementById("muteBtn").addEventListener("click", () => setMuted(true));
+
+    // Hide toast after a bit
+    const toast = document.getElementById("toast");
+    setTimeout(() => toast.style.display = "none", 7000);
+  
+    // Cinematic fade-in on scroll (IntersectionObserver)
+    const moments = Array.from(document.querySelectorAll(".moment"));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18 });
+
+    moments.forEach(m => io.observe(m));
+
+    // Background music controls (requires user gesture)
+    const bgm = document.getElementById("bgm");
+    const musicBtn = document.getElementById("musicBtn");
+    let musicOn = false;
+
+    function setMusicLabel(){
+      musicBtn.textContent = musicOn ? "Pause music ⏸️" : "Play music 🎶";
+    }
+    setMusicLabel();
+
+    musicBtn.addEventListener("click", async () => {
+      try {
+        if (!musicOn) {
+          // set a gentle default volume
+          bgm.volume = 0.35;
+          await bgm.play();
+          musicOn = true;
+        } else {
+          bgm.pause();
+          musicOn = false;
+        }
+        setMusicLabel();
+      } catch (e) {
+        // If the user hasn't provided a valid music file, this may fail.
+        musicOn = false;
+        setMusicLabel();
+        alert("Music file not found. Add your music file as 'music.mp3' next to this HTML, or replace the <source src> with a valid URL.");
+      }
+    });
+
+  </script>
+</body>
+</html>
